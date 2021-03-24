@@ -1,10 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div>
+      <b-navbar toggleable="lg" type="dark" variant="info">
+        <b-navbar-nav>
+          <b-nav-item href="#" disabled>
+            <img
+              src="https://www.tokohkita.co/uploads/berita/thumbs/750x400/20190804_bank-bri-pastikan-operasional-bank-tak-terganggu-pasca-pemadaman-listrik.jpg"
+              alt=""
+          /></b-nav-item>
+          <b-nav-item href="#" disabled
+            ><img
+              src="https://faseberita.id/property/files/2020/09/bumn-logo.jpg"
+              alt=""
+          /></b-nav-item>
+        </b-navbar-nav>
+      </b-navbar>
     </div>
-    <router-view/>
+    
+    <div style="">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -17,16 +32,17 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.navbar {
+  background-color: #008ed4;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 7px 21px 0px rgba(50, 50, 50, 0.1);
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.navbar img {
+  height: 80px;
+  border-radius: 10px;
 }
 </style>
