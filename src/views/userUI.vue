@@ -1,9 +1,9 @@
 <template>
-	<div class="picFile">
-		<b-form>
+	<div class="picFile ">
+		<b-form class="p-3">
 			<div class="mt-2"></div>
-			<div v-for="(data, index) in formdata" class="row pl-4">
-				<b-form-group :label="data.name.toUpperCase()" class="col-9 col-sm-9 ">
+			<div v-for="(data, index) in formdata" class="row ">
+				<b-form-group :label="data.name.toUpperCase()" :class=" !data.state?'col-12 col-sm-12' : 'col-9 col-sm-9' ">
 					<b-form-file
 						ref="file"
 						
@@ -15,7 +15,7 @@
 					>
 					</b-form-file>
 				</b-form-group>
-				<div class="preview col-3 col-sm-3 p-1">
+				<div class="preview col-3 col-sm-3 p-1" v-if="data.state">
 					<i style="font-size: 12px; margin-right: 10px">Preview</i>
 					<img :id="'preview_' + index" >
 				</div>
@@ -51,7 +51,7 @@ export default {
 						this.insertInformation();
 					});
 				} else {
-					this.kodeUker = result.value;
+					this.$parent.kodeUker = result.value;
 					this.$swal("Kode Uker Anda " + result.value, "", "success");
 				}
 			});
@@ -76,7 +76,6 @@ export default {
 	},
 	data() {
 		return {
-			kodeUker: "",
 			formdata: [
 				{
 					id: "pylon",
@@ -195,8 +194,8 @@ export default {
 .picfile {
 }
 .preview img{
-height:90px;
-width:90px;
+height:75px;
+width:75px;
 }
 .preview {
 	background-color: #f8f5f1;
